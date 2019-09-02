@@ -1,13 +1,33 @@
-window.onload = setOnclickForATag;
+window.onload = createShowImageElement;
+
+// 创建显示图片用的元素
+function createShowImageElement(){
+	// 检查浏览器对DOM函数的支持程度
+	if(!document.getElementById) return;
+	if(!document.getElementsByTagName) return;
+	if(!document.createElement) return;
+	if(!document.createTextNode) return;
+
+	// 创建元素，为了能使用CSS文件里的样式，要设置id
+	var image = document.createElement("img");
+	image.setAttribute("id", "image");
+	var imageTitle = document.createElement("p");
+	imageTitle.setAttribute("id", "imageTitle");
+
+	// 装填元素
+	var bodyTag = document.getElementsByTagName("body")[0]
+	bodyTag.append(image);
+	var imageTitleText = document.createTextNode("");
+	imageTitle.appendChild(imageTitleText);
+	bodyTag.append(imageTitle);
+
+	setOnclickForATag();
+}
 
 /**
  * 给a标签设置点击事件
  */
 function setOnclickForATag(){
-	// 检查浏览器对DOM函数的支持程度
-	if(!document.getElementById) return;
-	if(!document.getElementsByTagName) return;
-
 	var aTags = document.getElementById("imageList").getElementsByTagName("a");
 	var size = aTags.length;
 	if(size == 0) return;
@@ -27,9 +47,6 @@ function setOnclickForATag(){
  * @returns true：函数执行成功；false：函数执行异常
  */
 function showImage(aTag){
-	// 检查浏览器对DOM函数的支持程度
-	if(!document.getElementById) return false;
-
 	// 获取a标签的图片链接和title属性
 	var imageLink = aTag.getAttribute("href");
 	var title = aTag.getAttribute("title");
@@ -39,7 +56,7 @@ function showImage(aTag){
 	var imageTitle = document.getElementById("imageTitle");
 	
 	image.setAttribute("src", imageLink);
-	imageTitle.innerHTML = title;
+	imageTitle.firstChild.nodeValue = title;
 
 	return true;
 }
