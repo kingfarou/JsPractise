@@ -1,4 +1,4 @@
-window.onload = createShowImageElement;
+addLoadEvent(createShowImageElement);
 
 // 创建显示图片用的元素
 function createShowImageElement(){
