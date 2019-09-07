@@ -8,7 +8,8 @@ function createShowImageElement(){
 	if(!document.createElement) return;
 	if(!document.createTextNode) return;
 
-	// 创建元素，为了能使用CSS文件里的样式，要设置id
+	// 创建元素，用来显示所点击链接的图片及图片说明；
+	// 为了能使用CSS文件里的样式，要设置id
 	var image = document.createElement("img");
 	image.setAttribute("id", "image");
 	var imageTitle = document.createElement("p");
@@ -43,7 +44,7 @@ function setOnclickForATag(){
 
 /**
  * 显示来自a标签的图片
- * @param {a} aTag 
+ * @param {a} aTag a标签对象
  * @returns true：函数执行成功；false：函数执行异常
  */
 function showImage(aTag){
