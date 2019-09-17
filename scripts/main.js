@@ -11,9 +11,9 @@ function createShowImageElement(){
 	// 创建元素，用来显示所点击链接的图片及图片说明；
 	// 为了能使用CSS文件里的样式，要设置id
 	var image = document.createElement("img");
-	image.setAttribute("id", "image");
+	image.setAttribute("id", "selectImg");
 	var imageTitle = document.createElement("p");
-	imageTitle.setAttribute("id", "imageTitle");
+	imageTitle.setAttribute("id", "selectImgTitle");
 
 	// 装填元素
 	var bodyTag = document.getElementsByTagName("body")[0]
@@ -53,8 +53,8 @@ function showImage(aTag){
 	var title = aTag.getAttribute("title");
 	
 	// 将上述属性设置到目标元素里
-	var image = document.getElementById("image");
-	var imageTitle = document.getElementById("imageTitle");
+	var image = document.getElementById("selectImg");
+	var imageTitle = document.getElementById("selectImgTitle");
 	
 	image.setAttribute("src", imageLink);
 	imageTitle.firstChild.nodeValue = title;
