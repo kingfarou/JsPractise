@@ -16,12 +16,21 @@ ul{
 	margin-top:0.5rem;
 }
 
+/* 预览图片的div */
+#previewDiv{
+	margin-top: 2rem;
+	overflow: hidden;
+	position: relative;
+}
+
+/* 所选择的图片 */
 #selectImg{
 	max-width: 30rem;
 	max-height: 20rem;
     margin-top:2rem;
 }
 
+/* 所选择的图片的标题内容 */
 #selectImgTitle{
 	margin-top:0.5rem;
 }

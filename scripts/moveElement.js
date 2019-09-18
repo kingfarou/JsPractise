@@ -25,9 +25,13 @@ function positionElement(elementId, destinationX, destinationY){
  * @param {int} intervalTime 间隔时间，不是动画的总时长，这是“每动一下”的时间，单位：毫秒
  */
 function moveElement(elementId, destinationX, destinationY, intervalTime){
-    var element = document.getElementById(elementId);
     if(!elementId){
         return;
+    }
+    
+    var element = document.getElementById(elementId);
+    if(element.timer){
+        clearTimeout(element.timer);
     }
 
     var currentX = parseInt(element.style.left);
@@ -58,5 +62,5 @@ function moveElement(elementId, destinationX, destinationY, intervalTime){
 
     // 递归实现动画
     var statement = "moveElement(" + "'" + elementId + "'," + destinationX + "," + destinationY + "," + intervalTime + ")";
-    setTimeout(statement, intervalTime);
+    element.timer = setTimeout(statement, intervalTime);
 }
